@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="style.css">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700|Old+Standard+TT&display=swap&subset=cyrillic" rel="stylesheet">
+        <title>Задание 3</title>
+        <script type='text/javascript'>
+
+            let det = function(a11,a12,a13,a21,a22,a23,a31,a32,a33) {
+                let d = a11*a22*a33+a12*a23*a31+a13*a21*a32; 
+                return d-a13*a22*a31-a12*a21*a33-a11*a23*a32;
+            };
+
+            let CreateForm = function() {
+
+            let body = document.querySelector('body');
+            let table = document.createElement('table');
+            let trs = [document.createElement('tr'), document.createElement('tr'), document.createElement('tr')];
+
+            for(let tr of trs) {
+                let td1 = document.createElement('td');
+                let input = document.createElement('input');
+                input.type = 'text';
+                input.classList.add('input-number');
+                let label = document.createElement('label');
+                label.textContent = 'X1  '
+                td1.appendChild(input);
+                td1.appendChild(label);
+
+                let td2 = document.createElement('td');
+                input = document.createElement('input');
+                input.classList.add('input-number');
+                label = document.createElement('label');
+                label.textContent = 'X2  ';
+                td2.appendChild(input);
+                td2.appendChild(label);
+
+
+                let td3 = document.createElement('td');
+                input = document.createElement('input');
+                input.classList.add('input-number');
+                label = document.createElement('label');
+                label.textContent = 'X3 = ';
+                td3.appendChild(input);
+                td3.appendChild(label);
+
+                let td4 = document.createElement('td');
+                input = document.createElement('input');
+                input.classList.add('input-number');
+                td4.appendChild(input);
+
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+                tr.appendChild(td3);
+                tr.appendChild(td4);
+
+                table.appendChild(tr);
+                }
+                body.appendChild(table);
+
+                let buttonRand = document.createElement('input');
+                buttonRand.type = 'button';
+                buttonRand.value = 'Сгенерировать коэффициенты';
+                buttonRand.addEventListener('click', function() {
+                    let fields = document.querySelectorAll('.input-number');
+                    for(let field of fields) {
+                        field.value = Math.round(Math.random() * 100);
+                    }
+                });
+                body.appendChild(buttonRand);
+                body.appendChild(document.createElement('br'));
+
+                let label = document.createElement('label');
+                label.textContent = 'X1=';
+                let outputField = document.createElement('input');
+                outputField.type = 'text';
+                outputField.classList.add('output-numberx1');
+                body.appendChild(label);
+                body.appendChild(outputField);
+                body.appendChild(document.createElement('br'));
+
+                label = document.createElement('label');
+                label.textContent = 'X2=';
+                outputField = document.createElement('input');
+                outputField.type = 'text';
+                outputField.classList.add('output-numberx2');
+                body.appendChild(label);
+                body.appendChild(outputField);
+                body.appendChild(document.createElement('br'));
+
+                label = document.createElement('label');
+                label.textContent = 'X3=';
+                outputField = document.createElement('input');
+                outputField.type = 'text';
+                outputField.classList.add('output-numberx3');
+                body.appendChild(label);
+                body.appendChild(outputField);
+                body.appendChild(document.createElement('br'));
+
+                let buttonCalc = document.createElement('input');
+                buttonCalc.type = 'button';
+                buttonCalc.value = 'Решение системы';
+                buttonCalc.addEventListener('click', function() {
+                    let  n = document.querySelectorAll('.input-number');
+
+                    let  d = det(n[0].value, n[1].value, n[2].value, n[4].value, n[5].value, n[6].value, n[8].value, n[9].value, n[10].value);
+                    let d1 = det(n[3].value, n[1].value, n[2].value, n[7].value, n[5].value, n[6].value, n[11].value, n[9].value, n[10].value);
+                    let d2 = det(n[0].value, n[3].value, n[3].value, n[4].value, n[7].value, n[6].value, n[8].value, n[11].value, n[10].value);
+                    let d3 = det(n[0].value, n[1].value, n[3].value, n[4].value, n[5].value, n[11].value, n[8].value, n[9].value, n[11].value);
+
+
+                    let outputx1 = document.querySelector('.output-numberx1');
+                    outputx1.value = (d1/d).toFixed(2);
+                    let outputx2 = document.querySelector('.output-numberx2');
+                    outputx2.value = (d2/d).toFixed(2);
+                    let outputx3 = document.querySelector('.output-numberx3');
+                    outputx3.value = (d3/d).toFixed(2);
+                });
+                body.appendChild(buttonCalc);
+            };
+        </script>
+    </head>
+        <body onload="CreateForm()" style="text-align: left;">
+            <header class="page-header">
+            <nav class="main-menu">
+          <ul>
+            <li><a href="index.html">Мой сайт</a></li>
+            <li><a href="43.html">Задание 3</a></li>
+            <li><a href="44.html">Задание 4</a></li>
+            <li><a href="45.html">Задание 5</a></li>
+          </ul>
+          </nav>
+          <div class="container">
+            <a href="mailto:bashirovb3@mail.ru" class = "header-email">bashirovb3@mail.ru</a>
+          </div>
+        </header>
+        </body>
+</html>

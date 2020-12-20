@@ -1,0 +1,18 @@
+.matrix {
+  
+    table-layout: fixed;
+}
+
+.matrix-elem td, th {
+    padding: 10px 10px;
+}
+
+.matrix-elem input{
+    text-align: center;
+    width: 30px;
+    height: 30px;
+}
+
+.sort-button {
+    text-align: center;
+}

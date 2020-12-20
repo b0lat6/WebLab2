@@ -12,13 +12,24 @@ body {
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top center;
+  text-align: center;
 }
-
 h1 {
 	color: #6a29ff;
 }
 h2 {
 	color: #fffafa;
+}
+nav {
+  text-align: left;
+  position: relative;
+  min-height: 20px;
+  font-size: 20px;
+}
+
+li {
+  display: inline-block;
+  margin-right: 1em;
 }
 
 .container {
@@ -31,10 +42,6 @@ h2 {
   font-weight: 500;
 }
 
-.page-header {
-  padding: 32px 0 32px;
-}
-
 .page-header .container,
 .page-footer .container {
   max-width: 1408px;
@@ -42,9 +49,7 @@ h2 {
 }
 
 .page-header a {
-  margin-left: 56px;
   color: #288be6;
-  text-decoration: none;
   background-repeat: no-repeat;
   background-position: left;
 }
@@ -75,8 +80,50 @@ h2 {
   background-repeat: no-repeat;
   background-position: left;
 }
-
 .footer-email {
   padding-left: 30px;
   background-image: url("img/icon-email-footer.svg");
+}
+.form {
+  width:400px;
+  height:600px;  
+  border: 1px solid;
+  overflow-y: scroll;
+  }
+.matrix {
+  text-align: center;
+  margin: auto;
+  table-layout: fixed;
+}
+
+.elem td, th {
+  padding: 10px 10px;
+}
+
+.elem input{
+  text-align: center;
+  width: 30px;
+  height: 30px;
+}
+
+.sort-button {
+  text-align: center;
+}
+
+.input-number{
+  width: 20px;
+}
+
+.output-numberx1 {
+  width: 40px;
+}
+
+.output-numberx2 {
+  
+  width: 40px;
+}
+
+.output-numberx3 {
+
+  width: 40px;
 }
